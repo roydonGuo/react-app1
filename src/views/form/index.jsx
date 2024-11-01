@@ -209,7 +209,7 @@ class BasicDemoWithInit extends React.Component {
               <Form.Upload
                 field="files"
                 label="证明文件（Upload）"
-                action="//semi.design/api/upload"
+                action="https://semi.design/api/upload"
               >
                 <Button icon={<IconUpload />} theme="light">
                   点击上传
