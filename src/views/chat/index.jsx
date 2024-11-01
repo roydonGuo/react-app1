@@ -2,6 +2,7 @@ import React, { useState, useCallback } from "react";
 import { Chat } from "@douyinfe/semi-ui";
 
 function DefaultChat() {
+
   const defaultMessage = [
     {
       role: "system",
@@ -45,8 +46,8 @@ function DefaultChat() {
   const commonOuterStyle = {
     border: "1px solid var(--semi-color-border)",
     borderRadius: "16px",
-    margin: "8px 16px",
-    height: 550,
+    margin: "16px auto",
+    height: 1000,
   };
 
   let id = 0;
@@ -58,7 +59,7 @@ function DefaultChat() {
   const uploadTipProps = { content: "自定义上传按钮提示信息" };
 
   const [message, setMessage] = useState(defaultMessage);
-  const mode = "bubble"; 
+  const mode = "bubble";
   const align = "leftRight";
 
   const onMessageSend = useCallback((content, attachment) => {
