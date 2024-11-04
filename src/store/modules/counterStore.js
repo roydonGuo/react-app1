@@ -15,7 +15,10 @@ const counterStore = createSlice({
       state.count--;
     },
     changeByInput(state, action) {
-      state.count += action.payload;
+      // state.count += action.payload;
+      // 转成数字进行相加
+      state.count = Number(state.count) + Number(action.payload);
+      // state.count += Number(action.payload);
     },
   },
 });

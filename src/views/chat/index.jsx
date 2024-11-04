@@ -56,7 +56,7 @@ function DefaultChat() {
   }
 
   const uploadProps = { action: "https://api.semi.design/upload" };
-  const uploadTipProps = { content: "自定义上传按钮提示信息" };
+  // const uploadTipProps = { content: "自定义上传按钮提示信息" };
 
   const [message, setMessage] = useState(defaultMessage);
   const mode = "bubble";

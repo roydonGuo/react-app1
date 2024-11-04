@@ -54,10 +54,7 @@ class BasicDemoWithInit extends React.Component {
       Section,
       Input,
       InputNumber,
-      AutoComplete,
       Select,
-      TreeSelect,
-      Cascader,
       DatePicker,
       TimePicker,
       TextArea,
@@ -71,7 +68,7 @@ class BasicDemoWithInit extends React.Component {
       TagInput,
     } = Form;
     const { initValues } = this.state;
-    const plainOptions = ["A", "B", "C"];
+    // const plainOptions = ["A", "B", "C"];
     const style = { width: "90%" };
     const treeData = [
       {

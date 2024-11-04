@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./index.css";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import {
   Button,
   Toast,
@@ -19,12 +19,14 @@ import {
   decrement,
   changeByInput,
 } from "../../store/modules/counterStore";
+import { fetchChannels } from "../../store/modules/channelStore";
 
 const list = [
   { id: 100, name: "vue2" },
   { id: 200, name: "react" },
   { id: 300, name: "angular" },
 ];
+
 function App() {
   let [count1, setCount] = useState(0);
 
@@ -59,7 +61,13 @@ function App() {
   const { count } = useSelector((state) => state.counter);
   const dispatch = useDispatch();
 
+  const { channelList } = useSelector((state) => state.channel);
+
   const { Option } = Form.Select;
+
+  useEffect(() => {
+    dispatch(fetchChannels());
+  }, [dispatch]);
 
   return (
     <div>
@@ -136,6 +144,14 @@ function App() {
           >
             +100
           </Button>
+          <Button
+            theme="outline"
+            type="primary"
+            style={{ marginRight: 8 }}
+            onClick={() => dispatch(changeByInput(seInputVal))}
+          >
+            add by input
+          </Button>
         </Space>
       </div>
       <Divider margin="16px" />
@@ -163,6 +179,20 @@ function App() {
           <Option value="guest">访客</Option>
         </Form.Select>
       </Form>
+      <Divider margin="16px" />
+      <Button
+        theme="solid"
+        type="primary"
+        style={{ marginRight: 8 }}
+        onClick={() => dispatch(fetchChannels())}
+      >
+        reFetchChannels
+      </Button>
+      <ul>
+        {channelList.map((item, index) => (
+          <li key={index}>{item.name}</li>
+        ))}
+      </ul>
       <Divider margin="16px" />
     </div>
   );
